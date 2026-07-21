@@ -2,8 +2,8 @@
 
 A [Claude](https://claude.com/claude-code) **skill** that encodes the Data-Oriented Design (DOD)
 architecture from *High Performance Unity Game Development (Using data-oriented design)* by
-**Nitzan Wilnai** (Manning) — **generalized so it applies in any language**, with a first-class
-**HTML5 / JavaScript / Canvas** track.
+**Nitzan Wilnai** (Manning) — **generalized so it applies in any language**, with two first-class
+deep tracks: **HTML5 / JavaScript / Canvas** and **native Rust (wgpu / winit)**.
 
 DOD is not a framework, an ECS, or a library. It's a coding paradigm built on three pillars —
 **performance** (contiguous arrays for cache locality; data separated from logic), **reduced
@@ -39,8 +39,11 @@ The dependency arrow points one way: **Game → Board → Logic → (Balance, Ga
 **index**, not an object. You **allocate up front** and **never allocate in the hot loop** (in managed
 languages, a GC pause *is* the cache-miss stall).
 
-For Unity specifically, prefer a dedicated `unity-dod-architecture` skill; use **this** one for
-HTML/JS and every other language (C, C++, Rust, Go, Zig, C#, …).
+For Unity specifically, prefer a dedicated `unity-dod-architecture` skill; use **this** one
+everywhere else. It ships two deep language tracks — **HTML/JS/Canvas**
+([`references/html-js.md`](references/html-js.md)) and **native Rust**
+([`references/rust.md`](references/rust.md)) — plus the language-agnostic patterns that carry over to
+C, C++, Go, Zig, C#, and the rest.
 
 ## Install as a Claude skill
 
