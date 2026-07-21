@@ -21,6 +21,7 @@ stays constant — you only add data and logic, never refactor existing systems)
 | [`references/patterns.md`](references/patterns.md) | Language-agnostic patterns: SoA, pure-logic anatomy, array-as-list/stack, index identity, pooling, indices-not-dictionaries. |
 | [`references/anti-patterns.md`](references/anti-patterns.md) | OOP habits → DOD corrections, with generic + JS examples. |
 | [`references/html-js.md`](references/html-js.md) | The HTML5/JS/Canvas track: TypedArrays, a Canvas Board, a `requestAnimationFrame` Game loop, and the per-frame-allocation traps unique to JS (closures, `.map/.filter`, spread, `Math.hypot` temporaries). |
+| [`references/rust.md`](references/rust.md) | The native-Rust track: parallel `Vec`s vs `#[repr(C)]`/`Pod` GPU instance structs, a pure-logic crate + wgpu/winit native crate split, the read-only-UI/`UiAction` enforcement pattern, pre-allocated scratch buffers, and `cargo test`-based golden/parity testing — grounded in two shipped Rust DOD games. |
 
 ## The core idea
 

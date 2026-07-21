@@ -211,7 +211,7 @@ The *concept* (SoA + index identity + no per-frame allocation) is universal. The
 |---|---|
 | **JavaScript / HTML** | **TypedArrays** — `Float32Array`, `Int32Array`, `Uint8Array`, etc. These are the whole game. A plain `[]` of numbers is boxed and pointer-chased; a `Float32Array` is contiguous C-style memory. See `references/html-js.md`. |
 | **C / C++** | Plain arrays / `std::vector<T>` of primitives, one per field. Struct-of-arrays, not array-of-structs. |
-| **Rust** | `Vec<f32>` per field (or a crate like a component store). Index = entity id. |
+| **Rust** | `Vec<f32>` per field, index = entity id; a pure-logic crate with no `wgpu`/`winit` deps, consumed by a native render crate. See `references/rust.md`. |
 | **C#** (non-Unity) | Arrays of primitives / `struct` (blittable). Same as the book. |
 | **Go** | Slices of primitives, one per field. Avoid slices of pointers. |
 | **Python / high-level** | `numpy` arrays per field when it's hot; accept that pure-Python loops won't be cache-optimal — DOD still helps clarity and vectorization. |
@@ -327,6 +327,12 @@ Board, and a rAF loop), see `references/html-js.md`.
 - `references/html-js.md` — the HTML5/JavaScript/Canvas track: TypedArrays, Canvas
   Board, rAF Game loop, and JS-specific per-frame-allocation traps. **Read this
   before writing HTML/JS DOD code.**
+- `references/rust.md` — the Rust track: parallel `Vec`s vs `#[repr(C)]`/`Pod` GPU
+  instance structs, a pure-logic-crate + wgpu/winit-native-crate workspace split, the
+  read-only-UI/`UiAction` enforcement pattern, pre-allocated scratch buffers for
+  instanced rendering, `cargo test`-based golden/parity testing, and Rust-specific
+  per-frame-allocation traps — grounded in two real shipped Rust DOD games. **Read
+  this before writing native Rust DOD code.**
 - `references/patterns.md` — language-agnostic patterns (SoA, pure logic anatomy,
   array-as-list/stack, index identity, pooling, indices-not-dictionaries).
 - `references/anti-patterns.md` — OOP habits → DOD corrections, with generic +
